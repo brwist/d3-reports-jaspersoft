@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="QuestionBank" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="689c7186-5824-4544-83c9-272ac7b8824e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="LocalJsonDataAdapter.xml"/>
+	<template><![CDATA["QuestionBankStyle.jrtx"]]></template>
+	<subDataset name="QuestionType" uuid="0f54e902-3bf8-41bb-b978-e121793087e2">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JsonDataAdapter"/>
+		<queryString language="json">
+			<![CDATA[report_data.questions]]>
+		</queryString>
+		<field name="type" class="java.lang.String">
+			<property name="net.sf.jasperreports.json.field.expression" value="type"/>
+			<fieldDescription><![CDATA[type]]></fieldDescription>
+		</field>
+		<group name="type">
+			<groupExpression><![CDATA[$F{type}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="json">
+		<![CDATA[report_data]]>
+	</queryString>
+	<field name="title" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="header.title"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtitle" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="header.subtitle"/>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.first_name"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.last_name"/>
+	</field>
+	<field name="profile_image_url" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.profile_image_url"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.email"/>
+	</field>
+	<field name="phone" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.phone"/>
+	</field>
+	<field name="shared_with" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.shared_with"/>
+	</field>
+	<field name="associated_with" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.associated_with"/>
+	</field>
+	<field name="last_updated_on" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.last_updated_on"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="summary.description"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="30" forecolor="#666666" uuid="c8b1436c-74aa-4f76-8103-6d0a1f8ee8d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a6143b42-0ca2-4c58-b306-d359b78f2405"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Question Bank]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="TitleStyle" x="0" y="35" width="550" height="18" uuid="cba0cf88-5bd9-41a9-8e6f-14d5e3407e96">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a6143b42-0ca2-4c58-b306-d359b78f2405"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="SubtitleStyle" x="0" y="53" width="320" height="16" uuid="f7592519-2c5b-4e8c-b38f-bd9f5deccb85"/>
+				<textFieldExpression><![CDATA[$F{subtitle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="87" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="256" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="280" height="190" uuid="63fa91d3-a0a7-4c5e-b4b3-03186bc41473"/>
+				<staticText>
+					<reportElement style="SubtitleStyle" x="0" y="-60" width="100" height="20" uuid="c7a23e15-ef9b-4f95-b4d7-960c04507ef7"/>
+					<textElement>
+						<font isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[SUMMARY:]]></text>
+				</staticText>
+				<image>
+					<reportElement x="0" y="0" width="70" height="70" uuid="65826c41-5161-4d2c-a514-d504c966b1ba"/>
+					<imageExpression><![CDATA[$F{profile_image_url}]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement style="SubtitleStyle" x="70" y="0" width="210" height="16" uuid="b522b9d5-4bc1-44bd-8d05-89bef7246bef">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="8"/>
+					<textFieldExpression><![CDATA[$F{first_name} + " " + $F{last_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="DetailStyle" x="70" y="17" width="210" height="16" uuid="c727ccb6-3a82-4e55-b69a-31470571820f">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="8"/>
+					<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="DetailStyle" x="70" y="33" width="210" height="16" uuid="a3c9a48f-9493-4764-ab92-93a16dd62abd">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box leftPadding="8"/>
+					<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="SectionStyle" x="0" y="100" width="80" height="13" uuid="cfa33d6d-c70f-4073-bf08-3d648380dcea">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Shared with:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SectionStyle" x="91" y="100" width="80" height="13" uuid="e53687f8-586a-4d9b-8217-78327ac23873">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Associated with:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SectionStyle" x="180" y="100" width="80" height="13" uuid="05786fc4-dced-421c-8084-33396b5f83f7">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Last updated on:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="SectionDataStyle" x="0" y="113" width="80" height="13" uuid="b4cdb64a-6110-48d2-a29b-879f8fdee78b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{shared_with}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="SectionDataStyle" x="91" y="113" width="80" height="13" uuid="66d41e81-631a-4c21-be65-e6d3c124e9d7">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{associated_with}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="SectionDataStyle" x="180" y="113" width="80" height="13" uuid="fe098c2d-5362-4f07-85e6-e5f04a9cffcf">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{last_updated_on}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="SectionStyle" x="0" y="140" width="80" height="13" uuid="db36e111-2b03-49e8-a8db-d41c42d9dc75">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Description:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="SectionDataStyle" x="0" y="153" width="280" height="13" uuid="a199d9bc-0eaf-49ce-bfc4-db7b60515520">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{shared_with}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement mode="Opaque" x="300" y="40" width="170" height="152" isPrintWhenDetailOverflows="true" uuid="81e90d79-ec5a-4799-b447-cf384daf0b21"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report">
+						<datasetRun subDataset="QuestionType" uuid="54e80a81-9890-4a8f-b34b-9158c77866a3">
+							<datasetParameter name="JSON_INPUT_STREAM">
+								<datasetParameterExpression><![CDATA[$P{JSON_INPUT_STREAM}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="net.sf.jasperreports.json.source">
+								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.json.source}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="net.sf.jasperreports.json.sources">
+								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.json.sources}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="net.sf.jasperreports.json.date.pattern">
+								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.json.date.pattern}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="net.sf.jasperreports.json.number.pattern">
+								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.json.number.pattern}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="JSON_LOCALE">
+								<datasetParameterExpression><![CDATA[$P{JSON_LOCALE}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="net.sf.jasperreports.json.locale.code">
+								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.json.locale.code}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="JSON_TIME_ZONE">
+								<datasetParameterExpression><![CDATA[$P{JSON_TIME_ZONE}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="net.sf.jasperreports.json.timezone.id">
+								<datasetParameterExpression><![CDATA[$P{net.sf.jasperreports.json.timezone.id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{type}]]></keyExpression>
+					<valueExpression><![CDATA[$V{type_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$F{type}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</detail>
+	<summary>
+		<band height="26" splitType="Stretch"/>
+	</summary>
+</jasperReport>
