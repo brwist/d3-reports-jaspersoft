@@ -18,7 +18,7 @@
     "question_type": [
       {
         "type": "Matching Items",
-        "value": "15"
+        "value": "10"
       },
       {
         "type": "Multi Choice",
@@ -26,11 +26,11 @@
       },
       {
         "type": "Multi Select",
-        "value": "45"
+        "value": "30"
       },
       {
         "type": "True or False",
-        "value": "37"
+        "value": "17"
       }
     ],
     "questions": [
