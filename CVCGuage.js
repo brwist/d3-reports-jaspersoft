@@ -29,20 +29,15 @@ define('cvcguage',['d3', 'jquery', 'liquidFillGuage'], function (d3) {
 		configLarge.waveAnimate = false;
 		configLarge.waveRise = false;
 
-		var mySeries = instanceData.series[0];
-		var mySum = 0;
-
-		for (var i = 0; i < mySeries.length; i++) {
-			var element = mySeries[i].questionCount;
-			mySum += element;
-		}
-
+		//Get the "value" property from first series 
+		var mySeries = instanceData.series[0][0];
+		var myValue = mySeries.value;
 
 		console.log(instanceData);
 		console.log(mySeries);
-		console.log(mySum);
+		console.log(myValue);
 
-		var gauge1 = loadLiquidFillGauge(instanceData.id + "_fillgauge", Number((mySum).toFixed(1)), configLarge);
+		var gauge1 = loadLiquidFillGauge(instanceData.id + "_fillgauge", Number((myValue)), configLarge);
 		console.log('loaded');
 		
 	};
