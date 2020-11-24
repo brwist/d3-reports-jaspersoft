@@ -12,7 +12,7 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
-	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver/"/>
+	<property name="ireport.jasperserver.url" value="http://192.168.1.101:8080/jasperserver/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/QuestionBank"/>
 	<template><![CDATA["QuestionBankStyle.jrtx"]]></template>
@@ -220,35 +220,43 @@
 				<text><![CDATA[Question Type]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubtitleStyle" x="325" y="56" width="200" height="20" uuid="b3b7bcc0-a2cf-4760-8261-d1c349686b31"/>
+				<reportElement style="SubtitleStyle" x="289" y="56" width="200" height="20" uuid="b3b7bcc0-a2cf-4760-8261-d1c349686b31"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Question Count]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement x="320" y="127" width="205" height="100" uuid="fbb36477-0a3a-4763-98ce-94237b08671e"/>
+				<reportElement x="286" y="127" width="205" height="100" uuid="fbb36477-0a3a-4763-98ce-94237b08671e"/>
 				<cvc:customvisualization xmlns:cvc="http://www.jaspersoft.com/cvcomponent" xsi:schemaLocation="http://www.jaspersoft.com/cvcomponent http://www.jaspersoft.com/cvcomponent/component.xsd">
 					<cvc:itemProperty name="script" value="CVCGuage.min.js"/>
 					<cvc:itemProperty name="module" value="cvcguage"/>
 					<cvc:itemProperty name="css" value="CVCGuage.css"/>
 					<cvc:cvData>
-						<dataset/>
+						<dataset>
+							<datasetRun subDataset="QuestionType" uuid="4013fa96-5be2-4573-9ccb-dd5a6605d185">
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+						</dataset>
 						<cvc:item>
-							<cvc:itemProperty name="value" value="75"/>
+							<cvc:itemProperty name="value">
+								<valueExpression><![CDATA[$V{value_SUM}]]></valueExpression>
+							</cvc:itemProperty>
 						</cvc:item>
 					</cvc:cvData>
 				</cvc:customvisualization>
 			</componentElement>
 			<componentElement>
-				<reportElement x="530" y="76" width="250" height="154" uuid="5b6256bc-cae5-4f3d-b343-735fd22db11b"/>
-				<cvc:customvisualization xmlns:cvc="http://www.jaspersoft.com/cvcomponent" xsi:schemaLocation="http://www.jaspersoft.com/cvcomponent http://www.jaspersoft.com/cvcomponent/component.xsd">
+				<reportElement x="489" y="76" width="311" height="177" uuid="6855aa84-e2d1-4d99-bd96-f95f7b2a1a51"/>
+				<cvc:customvisualization xmlns:cvc="http://www.jaspersoft.com/cvcomponent" xsi:schemaLocation="http://www.jaspersoft.com/cvcomponent http://www.jaspersoft.com/cvcomponent/component.xsd" onErrorType="Icon">
 					<cvc:itemProperty name="module" value="d3Bar"/>
 					<cvc:itemProperty name="css" value="cvcD3BarChart.css"/>
 					<cvc:itemProperty name="script" value="cvcD3BarChart.min.js"/>
 					<cvc:cvData>
 						<dataset>
-							<datasetRun subDataset="QuestionType" uuid="dcb407df-93e8-4464-9115-f4f0bd26c954"/>
+							<datasetRun subDataset="QuestionType" uuid="ff80e3d3-395c-431a-9bf4-31c0bfffa304">
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
 						</dataset>
 						<cvc:item>
 							<cvc:itemProperty name="value">
@@ -256,9 +264,20 @@
 							</cvc:itemProperty>
 						</cvc:item>
 					</cvc:cvData>
+					<cvc:cvData>
+						<dataset>
+							<datasetRun subDataset="QuestionType" uuid="dfb3b7fc-9f2e-45c8-8686-ef0cdc1d70df">
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+						</dataset>
+						<cvc:item>
+							<cvc:itemProperty name="value">
+								<valueExpression><![CDATA[$F{type}]]></valueExpression>
+							</cvc:itemProperty>
+						</cvc:item>
+					</cvc:cvData>
 				</cvc:customvisualization>
 			</componentElement>
 		</band>
-		<band height="253"/>
 	</detail>
 </jasperReport>
